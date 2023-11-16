@@ -12,15 +12,12 @@ const App = () => {
       }}
     >
       <Show above="lg">
-        <GridItem area={"nav"} bg={"fuchsia"}>
+        <GridItem area={"nav"} bgColor={"fuchsia"}>
           <Navbar />
         </GridItem>
       </Show>
-      <GridItem area={"aside"} bg={"darkturquoise"}>
-        {" "}
-        aside
-      </GridItem>
-      <GridItem area={"main"} bg={"steelblue"}>
+      <GridItem area={"aside"}></GridItem>
+      <GridItem area={"main"}>
         <GameGrid />
       </GridItem>
     </Grid>
