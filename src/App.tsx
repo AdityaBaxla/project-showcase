@@ -8,18 +8,22 @@ const App = () => {
   return (
     <Grid
       templateAreas={{
-        base: `"aside main"`,
-        lg: `"nav nav" "aside main"`,
+        base: `"nav" 
+               "main"`,
+        lg: `"nav nav" 
+             "aside main"`,
       }}
+      templateColumns={{ base: "1fr", lg: "200px 1fr" }}
     >
+      <GridItem area={"nav"} bgColor={"fuchsia"}>
+        <Navbar />
+      </GridItem>
+
       <Show above="lg">
-        <GridItem area={"nav"} bgColor={"fuchsia"}>
-          <Navbar />
+        <GridItem area={"aside"} paddingX={3}>
+          <GenreList />
         </GridItem>
       </Show>
-      <GridItem area={"aside"}>
-        <GenreList />
-      </GridItem>
       <GridItem area={"main"}>
         <GameGrid />
       </GridItem>
