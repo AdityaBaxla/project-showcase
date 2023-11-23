@@ -29,7 +29,8 @@ interface Props {
 
 const useGames = (
   selectedGenre: Genre | null,
-  selectedPlatform: Platforms | null
+  selectedPlatform: Platforms | null,
+  selectedOrder: string
 ) =>
   useData<Games>(
     "/games",
@@ -37,9 +38,10 @@ const useGames = (
       params: {
         genres: selectedGenre?.id,
         parent_platforms: selectedPlatform?.id,
+        ordering: selectedOrder,
       },
     },
-    [selectedGenre?.id, selectedPlatform?.id]
+    [selectedGenre?.id, selectedPlatform?.id, selectedOrder]
   );
 
 export default useGames;

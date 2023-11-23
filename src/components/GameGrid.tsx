@@ -8,10 +8,19 @@ import { Platforms } from "../hooks/usePlatforms";
 interface Props {
   selectedGenre: Genre | null;
   selectedPlatform: Platforms | null;
+  selectedOrder: string;
 }
 
-const GameGrid = ({ selectedGenre, selectedPlatform }: Props) => {
-  const { data, error, isLoading } = useGames(selectedGenre, selectedPlatform);
+const GameGrid = ({
+  selectedGenre,
+  selectedPlatform,
+  selectedOrder,
+}: Props) => {
+  const { data, error, isLoading } = useGames(
+    selectedGenre,
+    selectedPlatform,
+    selectedOrder
+  );
   const skeletion = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
   return (
