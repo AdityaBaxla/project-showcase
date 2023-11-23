@@ -1,5 +1,6 @@
 import {
   Button,
+  HStack,
   Menu,
   MenuButton,
   MenuItem,
@@ -8,6 +9,12 @@ import {
 } from "@chakra-ui/react";
 import React from "react";
 import { Platforms, usePlatforms } from "../hooks/usePlatforms";
+import {
+  FaBookAtlas,
+  FaBootstrap,
+  FaChevronDown,
+  FaDownLong,
+} from "react-icons/fa6";
 
 interface Props {
   onSelectPlatform: (platform: Platforms) => void;
@@ -26,8 +33,8 @@ const PlatformSelector = ({ onSelectPlatform, selectedPlatform }: Props) => {
   }
   return (
     <Menu>
-      <MenuButton as={Button} paddingY={4}>
-        {selectedPlatform?.name || "Platforms"}
+      <MenuButton as={Button} rightIcon={<FaChevronDown />}>
+        {selectedPlatform?.name || "Platforms"}{" "}
       </MenuButton>
       <MenuList>
         {data?.map((plat) => (
