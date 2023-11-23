@@ -45,6 +45,8 @@ const GenreList = ({ onSelectGenre, selectedGenre }: Props) => {
                     fontSize={"lg"}
                     variant={"link"}
                     colorScheme="pink"
+                    whiteSpace={"pre-line"}
+                    textAlign={"left"}
                   >
                     {genreObj.name}
                   </Button>
@@ -53,6 +55,8 @@ const GenreList = ({ onSelectGenre, selectedGenre }: Props) => {
                     onClick={() => onSelectGenre(genreObj)}
                     fontSize={"lg"}
                     variant={"link"}
+                    whiteSpace={"pre-line"}
+                    textAlign={"left"}
                   >
                     {genreObj.name}
                   </Button>
