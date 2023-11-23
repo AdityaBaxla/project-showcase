@@ -1,6 +1,3 @@
-import { useEffect, useState } from "react";
-import apiClient from "../services/apiClient";
-import { AxiosRequestConfig, CanceledError } from "axios";
 import { Genre } from "./useGenre";
 import useData from "./useData";
 import { Platforms } from "./usePlatforms";

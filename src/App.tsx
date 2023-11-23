@@ -14,12 +14,15 @@ import { Genre } from "./hooks/useGenre";
 import PlatformSelector from "./components/PlatformSelector";
 import { Platforms } from "./hooks/usePlatforms";
 import SortSelector from "./components/SortSelector";
+import ExpandedCard from "./components/ExpandedCard";
+import { Games } from "./hooks/useGames";
 
 const App = () => {
   const [selectedGenre, setSelectedGenre] = useState<Genre | null>(null);
   const [selectedPlatform, setSelectedPlatform] = useState<Platforms | null>(
     null
   );
+  const [selectedGame, setSelectedGame] = useState<Games | null>(null);
   const [selectedOrder, setSelectedOrder] = useState<string>("");
   return (
     <Grid
@@ -44,6 +47,14 @@ const App = () => {
         </GridItem>
       </Show>
       <GridItem area={"main"}>
+        {selectedGame && (
+          <ExpandedCard
+            expanded={(isExpanded) => {
+              isExpanded || setSelectedGame(null);
+            }}
+            selectedGame={selectedGame}
+          />
+        )}
         <HStack paddingY={4} spacing={5} marginLeft={3}>
           <PlatformSelector
             onSelectPlatform={(plat) => setSelectedPlatform(plat)}
@@ -52,6 +63,7 @@ const App = () => {
           <SortSelector onSelectOrder={(order) => setSelectedOrder(order)} />
         </HStack>
         <GameGrid
+          onSelectGame={(game) => setSelectedGame(game)}
           selectedPlatform={selectedPlatform}
           selectedGenre={selectedGenre}
           selectedOrder={selectedOrder}

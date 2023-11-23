@@ -8,11 +8,12 @@ import GameCardContainer from "./GameCardContainer";
 
 interface Props {
   game: Games;
+  onSelectGame: (selectedGame: Games) => void;
 }
 
-const GameCard = ({ game }: Props) => (
+const GameCard = ({ game, onSelectGame }: Props) => (
   <GameCardContainer>
-    <Card>
+    <Card onClick={() => onSelectGame(game)}>
       <Image src={getCroppedImageUrl(game.background_image)} />
       <CardBody>
         <Heading fontSize={"2xl"}>{game.name}</Heading>
